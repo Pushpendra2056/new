@@ -60,15 +60,18 @@
 			var socket = io();
 
 			socket.on('message', function(msg) {
+        console.log("msg "+msg);
 				$('.logs').prepend($('<li>').text(msg));
 			});
 
 			socket.on('qr', function(src) {
+        console.log("src "+src);
 				$('#qrcode').attr('src', src);
 				$('#qrcode').show();
 			});
 
 			socket.on('ready', function(data) {
+        console.log("data "+data);
 				$('#qrcode').hide();
 			});
 
